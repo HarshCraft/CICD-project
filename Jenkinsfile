@@ -17,7 +17,7 @@ pipeline {
 			}
 		}
 	}
-	 stage('TEST') {
+	stage('TEST') {
             steps {
                     dir('backend') {
                             sh '''mvn sonar:sonar \\
@@ -29,6 +29,7 @@ pipeline {
                     
                 }
             }
+	}
 	stage('QUALITY-GATES') {
             steps {
                 timeout(time: 5, unit: 'MINUTES') {
