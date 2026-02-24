@@ -5,7 +5,7 @@ pipeline {
 
 	stage('PULL') {
 		steps{
-			git 'https://github.com/HarshCraft/studentapp-project.git'
+			git 'https://github.com/HarshCraft/CICD-project.git'
 		}
 	}
 	stage('BULD') {
@@ -22,7 +22,7 @@ pipeline {
                 withSonarQubeEnv('sonar-token1') {
                     dir('backend') {
                         sh '''
-                            mvn clean verify sonar:sonar \
+                            mvn sonar:sonar \
 				  -Dsonar.projectKey=sonarp \
 				  -Dsonar.projectName='sonarp' \
 				  -Dsonar.host.url=http://13.203.42.107:9000 \		
